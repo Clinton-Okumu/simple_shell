@@ -112,10 +112,10 @@ typedef struct builtin
 
 
 /* toem_shloop.c */
-int hsh(info_t *, char **);
-int find_builtin(info_t *);
-void find_cmd(info_t *);
-void fork_cmd(info_t *);
+int my_shell_loop(info_t *, char **);
+int find_builtin_command(info_t *);
+void find_executable_command(info_t *);
+void fork_executable_command(info_t *);
 
 /* toem_parser.c */
 int is_cmd(info_t *, char *);
@@ -153,15 +153,15 @@ char **strtow(char *, char *);
 char **strtow2(char *, char);
 
 /* toem_realloc.c */
-char *_memset(char *, char, unsigned int);
-void ffree(char **);
-void *_realloc(void *, unsigned int, unsigned int);
+char *_mymemset(char *ptr, char value, unsigned int n);
+void myffree(char **);
+void *myreal_loc(void *, unsigned int, unsigned int);
 
 /* toem_memory.c */
 int bfree(void **);
 
 /* toem_atoi.c */
-int interactive(info_t *);
+int interact(info_t *);
 int is_delim(char, char *);
 int _isalpha(int);
 int _atoi(char *);
