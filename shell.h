@@ -173,14 +173,16 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
-/* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+/* builtin1.c */
+int directory_changes(info_t *info);
+int get_help(info_t *info);
+int for_exit(info_t *info);
 
-/* toem_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+/* builtin.c */
+int write_history(info_t *info);
+int set_alias(info_t *info, char *str);
+int print_alias(list_t *node);
+int man_alias(info_t *info);
 
 /*toem_getline.c */
 ssize_t get_input(info_t *);
@@ -192,12 +194,12 @@ void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
-/* toem_environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+/* environ.c */
+int print_environment(info_t *info);
+char *get_environment_variable(info_t *info, const char *name);
+int initialize_environment(info_t *info);
+int unset_environment_variable(info_t *info);
+int set_environment_variable(info_t *info);
 
 /* toem_getenv.c */
 char **get_environ(info_t *);
