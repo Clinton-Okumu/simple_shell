@@ -166,12 +166,12 @@ int if_delimeter(char, char *);
 int _isletter(int);
 int is_atoi(char *);
 
-/* toem_errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+/*errors1.c */
+int print_line_number(int number, int fd);
+void remove_comments(char *string);
+char *integer_to_string(long int num, int base, int flags);
+void print_error_message(info_t *info, char *error_type);
+int string_to_integer(char *s);
 
 /* builtin1.c */
 int directory_changes(info_t *info);
