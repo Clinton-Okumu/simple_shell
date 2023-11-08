@@ -160,11 +160,11 @@ void *myreal_loc(void *, unsigned int, unsigned int);
 /* toem_memory.c */
 int bfree(void **);
 
-/* toem_atoi.c */
-int interact(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
-int _atoi(char *);
+/* _atoi.c */
+int interact(info_t *info);
+int if_delimeter(char, char *);
+int _isletter(int);
+int is_atoi(char *);
 
 /* toem_errors1.c */
 int _erratoi(char *);
