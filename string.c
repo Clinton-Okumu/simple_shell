@@ -64,7 +64,7 @@ char *my_starts_with(const char *haystack, const char *needle)
  *
  * Return: pointer to the destination buffer
  */
-char *my_strcat(char *destination, const char *source)
+char *strcat(char *destination, const char *source)
 {
     char *result = destination;
 

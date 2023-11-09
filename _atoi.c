@@ -17,7 +17,7 @@ int interact(info_t *info)
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
-int if_delimeter(char c, char *delim)
+int is_delimeter(char c, char *delim)
 {
 	for (; *delim; delim++)
 	{
@@ -55,7 +55,7 @@ int is_atoi(char *s)
 	int j, tmp = 1, flug = 0, outcome;
 	unsigned int result = 0;
 
-	for (j = 0;  s[j] != '\0' && flug != 2; i++)
+	for (j = 0;  s[j] != '\0' && flug != 2; j++)
 	{
 		if (s[j] == '-')
 			tmp *= -1;

@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * my_copy_string - copies a string
+ * _strcpy - copies a string
  * @destination: the destination
  * @source: the source
  *
  * Return: pointer to the destination
  */
-char *my_copy_string(char *destination, const char *source)
+char *strcpy(char *destination, const char *source)
 {
     int i = 0;
 
@@ -51,7 +51,7 @@ char *my_duplicate_string(const char *str)
  *
  * Return: Nothing
  */
-void my_print_string(const char *str)
+void _eputs(const char *str)
 {
     int i = 0;
 
@@ -59,7 +59,7 @@ void my_print_string(const char *str)
         return;
     while (str[i] != '\0')
     {
-        my_putchar(str[i]);
+        _eputchar(str[i]);
         i++;
     }
 }
@@ -71,7 +71,7 @@ void my_print_string(const char *str)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int my_putchar(char c)
+int _eputchar(char c)
 {
     static int i;
     static char buffer[WRITE_BUF_SIZE];

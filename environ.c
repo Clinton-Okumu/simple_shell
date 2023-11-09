@@ -1,23 +1,23 @@
 #include "shell.h"
 /**
- * print_environment - prints the current environment variables
+ * my_env - prints the current environment variables
  * @info: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  * Return: Always 0
  */
-int print_environment(info_t *info)
+int my_env(info_t *info)
 {
 	print_list_str(info->env);
 	return (0);
 }
 
 /**
- * get_environment_variable - gets the value of an environment variable
+ * _getenv - gets the value of an environment variable
  * @info: Structure containing potential arguments.
  * @name: environment variable name
  * Return: the value of the environment variable or NULL if not found
  */
-char *get_environment_variable(info_t *info, const char *name)
+char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
 
@@ -31,11 +31,11 @@ char *get_environment_variable(info_t *info, const char *name)
 }
 
 /**
- * set_environment_variable - Initialize a new environment variable.
+ * my_setenv - Initialize a new environment variable.
  * @info: Structure containing potential arguments.
  * Return: 0 on success, 1 on error
  */
-int set_environment_variable(info_t *info)
+int my_setenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
@@ -48,12 +48,12 @@ int set_environment_variable(info_t *info)
 }
 
 /**
- * unset_environment_variable - Remove an environment variable
+ * my_unsetenv - Remove an environment variable
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
-int unset_environment_variable(info_t *info)
+int my_unsetenv(info_t *info)
 {
 	int i;
 
@@ -63,18 +63,18 @@ int unset_environment_variable(info_t *info)
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+		my_unsetenv(info, info->argv[i]);
 
 	return (0);
 }
 
 /**
- * initialize_environment - populates env linked list
+ * populate_env_list - populates the env linked list.
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
-int initialize_environment(info_t *info)
+int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
