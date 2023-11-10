@@ -205,11 +205,11 @@ int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
 
 /* history.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+char *getHistory_file(info_t *info);
+int writeHistory(info_t *info);
+int readHistory(info_t *info);
+int buildHistory_list(info_t *info, char *buf, int linecount);
+int renumberHistory(info_t *info);
 
 /* lists.c */
 list_t *addNode(list_t **, const char *, int);
