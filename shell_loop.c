@@ -28,7 +28,7 @@ int my_shell_loop(info_t *info, char **argv)
         }
         free_info(info, 0);
     }
-    write_history(info);
+    writeHistory(info);
     free_info(info, 1);
     if (!interactive(info) && info->status)
         exit(info->status);
@@ -107,7 +107,7 @@ void find_executable_command(info_t *info)
         info->path = path;
         fork_executable_command(info);
     } else {
-        if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && is_command(info, info->argv[0])) {
+        if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && isCmd(info, info->argv[0])) {
             fork_executable_command(info);
         } else if (*(info->arg) != '\n') {
             info->status = 127;

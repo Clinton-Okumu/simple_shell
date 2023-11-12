@@ -7,7 +7,7 @@
  * Return: allocated string containg history file
  */
 
-char *getHistoryFile(info_t *info)
+char *getHistory_file(info_t *info)
 {
 	char *buf, *dir;
 
@@ -33,7 +33,7 @@ char *getHistoryFile(info_t *info)
 int writeHistory(info_t *info)
 {
 	ssize_t fd;
-	char *filename = get_history_file(info);
+	char *filename = getHistory_file(info);
 	list_t *node = NULL;
 
 	if (!filename)
@@ -64,7 +64,7 @@ int readHistory(info_t *info)
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;
-	char *buf = NULL, *filename = get_history_file(info);
+	char *buf = NULL, *filename = getHistory_file(info);
 
 	if (!filename)
 		return (0);
@@ -89,21 +89,21 @@ int readHistory(info_t *info)
 		if (buf[i] == '\n')
 		{
 			buf[i] = 0;
-			build_history_list(info, buf + last, linecount++);
+			buildHistory_list(info, buf + last, linecount++);
 			last = i + 1;
 		}
 	if (last != i)
-		build_history_list(info, buf + last, linecount++);
+		buildHistory_list(info, buf + last, linecount++);
 	free(buf);
 	info->histcount = linecount;
 	while (info->histcount-- >= HIST_MAX)
-		delete_node_at_index(&(info->history), 0);
-	renumber_history(info);
+		deleteNodeAtIndex(&(info->history), 0);
+	renumberHistory(info);
 	return (info->histcount);
 }
 
 /**
- * buildHistoryList - adds entry to a history linked list
+ * buildHistory_list - adds entry to a history linked list
  * @info: Structure containing potential arguments. Used to maintain
  * @buf: buffer
  * @linecount: the history linecount, histcount
@@ -116,7 +116,7 @@ int buildHistoryList(info_t *info, char *buf, int linecount)
 
 	if (info->history)
 		node = info->history;
-	add_node_end(&node, buf, linecount);
+	addNodeEnd(&node, buf, linecount);
 
 	if (!info->history)
 		info->history = node;

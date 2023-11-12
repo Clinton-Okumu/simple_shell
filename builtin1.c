@@ -9,7 +9,7 @@
  */
 int my_history(info_t *info)
 {
-	print_list(info->history);
+	printList(info->history);
 	return (0);
 }
 
@@ -30,8 +30,8 @@ int unset_alias(info_t *info, char *str)
 		return (1);
 	c = *p;
 	*p = 0;
-	ret = delete_node_at_index(&(info->alias),
-		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
+	ret = deleteNodeAtIndex(&(info->alias),
+		getNodeIndex(info->alias, nodeStarts_with(info->alias, str, -1)));
 	*p = c;
 	return (ret);
 }
@@ -54,7 +54,7 @@ int set_alias(info_t *info, char *str)
 		return (unset_alias(info, str));
 
 	unset_alias(info, str);
-	return (add_node_end(&(info->alias), str, 0) == NULL);
+	return ( addNodeEnd(&(info->alias), str, 0) == NULL);
 }
 
 /**
@@ -81,12 +81,12 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - mimics the alias builtin (man alias)
+ * my_alias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
  */
-int _myalias(info_t *info)
+int my_alias(info_t *info)
 {
 	int i = 0;
 	char *p = NULL;
@@ -108,7 +108,7 @@ int _myalias(info_t *info)
 		if (p)
 			set_alias(info, info->argv[i]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
+			print_alias(nodeStarts_with(info->alias, info->argv[i], '='));
 	}
 
 	return (0);
