@@ -113,14 +113,14 @@ typedef struct builtin
 
 /* shloop.c */
 int hsh(info_t *, char **);
-int find_builtin(info_t *);
-void find_cmd(info_t *);
-void fork_cmd(info_t *);
+int find_builtin_command(info_t *);
+void find_executable_command(info_t *);
+void fork_executable_command(info_t *);
 
 /* parser.c */
 int isCmd(info_t *, char *);
 char *dupChars(char *, int, int);
-char *findPath(info_t *, char *, char *);
+char *find_command_in_path(info_t *, char *, char *);
 
 /* loophsh.c */
 int loophsh(char **);

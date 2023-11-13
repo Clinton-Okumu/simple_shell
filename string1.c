@@ -7,7 +7,7 @@
  *
  * Return: pointer to the destination
  */
-char *strcpy(char *destination, const char *source)
+char *_strcpy(char *destination, char *source)
 {
     int i = 0;
 
@@ -46,12 +46,12 @@ char *my_duplicate_string(const char *str)
 }
 
 /**
- * my_print_string - prints an input string
+ * _puts - prints an input string
  * @str: the string to be printed
  *
  * Return: Nothing
  */
-void _eputs(const char *str)
+void _puts(char *str)
 {
     int i = 0;
 
