@@ -11,7 +11,7 @@ int my_exit(info_t *info)
 {
 	int exitcheck;
 
-	if (info->argv[1])  /* If there is an exit arguement */
+	if (info->argv[1])
 	{
 		exitcheck = _erratoi(info->argv[1]);
 		if (exitcheck == -1)
@@ -52,7 +52,7 @@ int my_cd(info_t *info)
 		else
 			chdir_ret = chdir(dir);
 	}
-	else if (_strcmp(info->argv[1], "-") == 0)
+	else if (my_strcmp(info->argv[1], "-") == 0)
 	{
 		if (!_getenv(info, "OLDPWD="))
 		{

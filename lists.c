@@ -106,7 +106,7 @@ list_t *addNodeEnd(list_t **head, const char *str, int num)
 	new_node->num = num;
 	if (str)
 	{
-		new_node->str = _strdup(str);
+		new_node->str = my_duplicate_string(str);
 		if (!new_node->str)
 		{
 			free(new_node);
@@ -145,7 +145,7 @@ list_t *addNode(list_t **head, const char *str, int num)
 	new_head->num = num;
 	if (str)
 	{
-		new_head->str = _strdup(str);
+		new_head->str = my_duplicate_string(str);
 		if (!new_head->str)
 		{
 			free(new_head);

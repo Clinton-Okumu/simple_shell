@@ -43,21 +43,21 @@ char *dupChars(char *pathstr, int start, int stop)
 }
 
 /**
- * findPath - finds this cmd in the PATH string
+ * find_command_in_path - finds this cmd in the PATH string
  * @info: the info struct
  * @pathstr: the PATH string
  * @cmd: the cmd to find
  *
  * Return: full path of cmd if found or NULL
  */
-char *findPath(info_t *info, char *pathstr, char *cmd)
+char *find_command_in_path(info_t *info, char *pathstr, char *cmd)
 {
 	int i = 0, curr_pos = 0;
 	char *path;
 
 	if (!pathstr)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((my_strlen(cmd) > 2) && starts_with(cmd, "./"))
 	{
 		if (isCmd(info, cmd))
 			return (cmd);

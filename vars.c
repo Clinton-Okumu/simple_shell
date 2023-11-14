@@ -96,7 +96,7 @@ int replace_alias(info_t *info)
         {
             return (0);
         }
-        p = _strdup(p + 1);
+        p = my_duplicate_string(p + 1);
         if (!p)
         {
             return (0);
@@ -124,23 +124,23 @@ int replace_vars(info_t *info)
             continue;
         }
 
-        if (!_strcmp(info->argv[i], "$?"))
+        if (!my_strcmp(info->argv[i], "$?"))
         {
-            replace_string(&(info->argv[i]), _strdup(convert_number(info->status, 10, 0)));
+            replace_string(&(info->argv[i]), my_duplicate_string(convert_number(info->status, 10, 0)));
             continue;
         }
-        if (!_strcmp(info->argv[i], "$$"))
+        if (!my_strcmp(info->argv[i], "$$"))
         {
-            replace_string(&(info->argv[i]), _strdup(convert_number(getpid(), 10, 0)));
+            replace_string(&(info->argv[i]), my_duplicate_string(convert_number(getpid(), 10, 0)));
             continue;
         }
         node = nodeStarts_with(info->env, &info->argv[i][1], '=');
         if (node)
         {
-            replace_string(&(info->argv[i]), _strdup(_strchr(node->str, '=') + 1));
+            replace_string(&(info->argv[i]), my_duplicate_string(_strchr(node->str, '=') + 1));
             continue;
         }
-        replace_string(&info->argv[i], _strdup(""));
+        replace_string(&info->argv[i], my_duplicate_string(""));
     }
     return (0);
 }

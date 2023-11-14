@@ -14,7 +14,7 @@ char *getHistory_file(info_t *info)
 	dir = _getenv(info, "HOME=");
 	if (!dir)
 		return (NULL);
-	buf = malloc(sizeof(char) * (_strlen(dir) + _strlen(HIST_FILE) + 2));
+	buf = malloc(sizeof(char) * (my_strlen(dir) + my_strlen(HIST_FILE) + 2));
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
@@ -110,7 +110,7 @@ int readHistory(info_t *info)
  *
  * Return: Always 0
  */
-int buildHistoryList(info_t *info, char *buf, int linecount)
+int buildHistory_list(info_t *info, char *buf, int linecount)
 {
 	list_t *node = NULL;
 

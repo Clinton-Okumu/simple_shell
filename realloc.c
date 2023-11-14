@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- **_mymemset - fills memory with a constant byte
+ **_memset - fills memory with a constant byte
  *@ptr: the pointer to the memory area
  *@value: the byte to fill *s with
  *@n: the amount of bytes to be filled
  *Return: (s) a pointer to the memory area s
  */
-char *_mymemset(char *ptr, char value, unsigned int n)
+char *_memset(char *ptr, char value, unsigned int n)
 {
 	unsigned int i;
 
@@ -39,7 +39,7 @@ void myffree(char **strarray)
  *
  * Return: pointer to da ol'block nameen.
  */
-void *myreal_loc(void *old_ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *old_ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *p;
 

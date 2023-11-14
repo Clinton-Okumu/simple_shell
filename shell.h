@@ -112,7 +112,7 @@ typedef struct builtin
 
 
 /* shloop.c */
-int hsh(info_t *, char **);
+int my_shell_loop(info_t *, char **);
 int find_builtin_command(info_t *);
 void find_executable_command(info_t *);
 void fork_executable_command(info_t *);
@@ -132,14 +132,14 @@ int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
 
 /* string.c */
-int _strlen(char *);
-int _strcmp(char *, char *);
+int my_strlen(char *);
+int my_strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 
 /* string1.c */
 char *_strcpy(char *, char *);
-char *_strdup(const char *);
+char *my_duplicate_string(const char *);
 void _puts(char *);
 int _putchar(char);
 
@@ -154,14 +154,14 @@ char **strtow2(char *, char);
 
 /* realloc.c */
 char *_memset(char *, char, unsigned int);
-void ffree(char **);
+void myffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* memory.c */
 int freeAndNull(void **);
 
 /* atoi.c */
-int interactive(info_t *);
+int interact(info_t *);
 int is_delim(char, char *);
 int _isalpha(int);
 int _atoi(char *);

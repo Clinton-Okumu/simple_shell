@@ -25,7 +25,7 @@ int my_strlen(char *str)
  *
  * Return: negative if str1 < str2, positive if str1 > str2, zero if str1 == str2
  */
-int my_strcmp(const char *str1, const char *str2)
+int my_strcmp(char *str1, char *str2)
 {
     while (*str1 && *str2)
     {
@@ -47,7 +47,7 @@ int my_strcmp(const char *str1, const char *str2)
  *
  * Return: address of the next character in haystack or NULL
  */
-char *my_starts_with(const char *haystack, const char *needle)
+char *starts_with(const char *haystack, const char *needle)
 {
     while (*needle)
     {
@@ -58,13 +58,13 @@ char *my_starts_with(const char *haystack, const char *needle)
 }
 
 /**
- * my_strcat - concatenates two strings
+ * _strcat - concatenates two strings
  * @destination: the destination buffer
  * @source: the source buffer
  *
  * Return: pointer to the destination buffer
  */
-char *strcat(char *destination, const char *source)
+char *_strcat(char *destination, char *source)
 {
     char *result = destination;
 

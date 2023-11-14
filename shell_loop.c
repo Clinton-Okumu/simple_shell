@@ -14,7 +14,7 @@ int my_shell_loop(info_t *info, char **argv)
 
     while (read_result != -1 && builtin_return != -2) {
         clear_info(info);
-        if (interactive(info))
+        if (interact(info))
             _puts("$ ");
         _eputchar(BUF_FLUSH);
         read_result = get_input(info);
@@ -23,14 +23,14 @@ int my_shell_loop(info_t *info, char **argv)
             builtin_return = find_builtin_command(info);
             if (builtin_return == -1)
                 find_executable_command(info);
-        } else if (interactive(info)) {
+        } else if (interact(info)) {
             _putchar('\n');
         }
         free_info(info, 0);
     }
     writeHistory(info);
     free_info(info, 1);
-    if (!interactive(info) && info->status)
+    if (!interact(info) && info->status)
         exit(info->status);
     if (builtin_return == -2) {
         if (info->err_num == -1)
@@ -65,7 +65,7 @@ int find_builtin_command(info_t *info)
     };
 
     for (i = 0; builtintbl[i].type; i++) {
-        if (_strcmp(info->argv[0], builtintbl[i].type) == 0) {
+        if (my_strcmp(info->argv[0], builtintbl[i].type) == 0) {
             info->line_count++;
             builtin_return = builtintbl[i].func(info);
             break;
@@ -107,7 +107,7 @@ void find_executable_command(info_t *info)
         info->path = path;
         fork_executable_command(info);
     } else {
-        if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && isCmd(info, info->argv[0])) {
+        if ((interact(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && isCmd(info, info->argv[0])) {
             fork_executable_command(info);
         } else if (*(info->arg) != '\n') {
             info->status = 127;

@@ -15,7 +15,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 
 	if (!*len) /* if nothing left in the buffer, fill it */
 	{
-		/*bfree((void **)info->cmd_buf);*/
+		/*freeAndNull((void **)info->cmd_buf);*/
 		free(*buf);
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
@@ -82,7 +82,7 @@ ssize_t get_input(info_t *info)
 		}
 
 		*buf_p = p; /* pass back pointer to current command position */
-		return (_strlen(p)); /* return length of current command */
+		return (my_strlen(p)); /* return length of current command */
 	}
 
 	*buf_p = buf; /* else not a chain, pass back buffer from _getline() */
