@@ -79,7 +79,7 @@ size_t printList(const list_t *h)
 }
 
 /**
- * nodeStartsWith - returns node whose string starts with prefix
+ * nodeStarts_with - returns node whose string starts with prefix
  * @node: pointer to list head
  * @prefix: string to match
  * @c: the next character after prefix to match
