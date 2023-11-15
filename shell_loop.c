@@ -56,8 +56,7 @@ int my_shell_loop(info_t *info, char **argv)
 int find_builtin_command(info_t *info)
 {
 	int i, builtin_return = -1;
-	builtin_table builtintbl[] =
-	{
+	builtin_table builtintbl[] = {
 		{"myexit", my_exit},
 		{"myenv", my_env},
 		{"myhelp", my_help},
