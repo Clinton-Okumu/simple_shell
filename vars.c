@@ -90,7 +90,7 @@ int replace_alias(info_t *info)
 		{
 			return (0);
 		}
-		free(info->arg[0]);
+		
 		p = _strchr(node->str, '=');
 		if (!p)
 		{

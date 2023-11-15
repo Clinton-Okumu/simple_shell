@@ -118,7 +118,7 @@ void find_executable_command(info_t *info)
 	} else
 	{
 		if ((interact(info) || _getenv(info, "PATH=")
-			|| info->argv[0][0] == '/') 
+			|| info->argv[0][0] == '/')
 		&& isCmd(info, info->argv[0]))
 		{
 			fork_executable_command(info);
