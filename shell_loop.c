@@ -117,7 +117,9 @@ void find_executable_command(info_t *info)
 		fork_executable_command(info);
 	} else
 	{
-		if ((interact(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && isCmd(info, info->argv[0]))
+		if ((interact(info) || _getenv(info, "PATH=")
+			|| info->argv[0][0] == '/') 
+		&& isCmd(info, info->argv[0]))
 		{
 			fork_executable_command(info);
 		} else if (*(info->arg) != '\n')

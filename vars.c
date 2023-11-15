@@ -126,18 +126,21 @@ int replace_vars(info_t *info)
 
 		if (!my_strcmp(info->argv[i], "$?"))
 		{
-			replace_string(&(info->argv[i]), my_duplicate_string(convert_number(info->status, 10, 0)));
+			replace_string(&(info->argv[i]),
+					my_duplicate_string(convert_number(info->status, 10, 0)));
 			continue;
 		}
 		if (!my_strcmp(info->argv[i], "$$"))
 		{
-			replace_string(&(info->argv[i]), my_duplicate_string(convert_number(getpid(), 10, 0)));
+			replace_string(&(info->argv[i]),
+					my_duplicate_string(convert_number(getpid(), 10, 0)));
 			continue;
 		}
 		node = nodeStarts_with(info->env, &info->argv[i][1], '=');
 		if (node)
 		{
-			replace_string(&(info->argv[i]), my_duplicate_string(_strchr(node->str, '=') + 1));
+			replace_string(&(info->argv[i]),
+					my_duplicate_string(_strchr(node->str, '=') + 1));
 			continue;
 		}
 		replace_string(&info->argv[i], my_duplicate_string(""));
